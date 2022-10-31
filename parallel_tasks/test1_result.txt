@@ -1,0 +1,135 @@
+22:03:21.338 -> Hi from getSMS_vec_size (ret:0) !
+22:03:21.338 -> (T1) measures_cnt: 1
+22:03:21.853 -> Task 2 finished !
+22:03:21.993 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:26.284 -> ets Jun  8 2016 00:22:57
+22:03:26.284 -> 
+22:03:26.284 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:26.284 -> configsip: 0, SPIWP:0xee
+22:03:26.284 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:26.331 -> mode:DIO, clock div:1
+22:03:26.331 -> load:0x3fff0030,len:1344
+22:03:26.331 -> load:0x40078000,len:13864
+22:03:26.331 -> load:0x40080400,len:3608
+22:03:26.331 -> entry 0x400805f0
+22:03:26.331 -> Hi from getSMS_vec_size (ret:0) !
+22:03:26.331 -> (T1) measures_cnt: 2
+22:03:26.889 -> Task 2 finished !
+22:03:26.983 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:31.321 -> ets Jun  8 2016 00:22:57
+22:03:31.321 -> 
+22:03:31.321 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:31.321 -> configsip: 0, SPIWP:0xee
+22:03:31.321 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:31.321 -> mode:DIO, clock div:1
+22:03:31.368 -> load:0x3fff0030,len:1344
+22:03:31.368 -> load:0x40078000,len:13864
+22:03:31.368 -> load:0x40080400,len:3608
+22:03:31.368 -> entry 0x400805f0
+22:03:31.368 -> Hi from getSMS_vec_size (ret:0) !
+22:03:31.368 -> (T1) measures_cnt: 3
+22:03:31.928 -> Task 2 finished !
+22:03:32.022 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:36.361 -> ets Jun  8 2016 00:22:57
+22:03:36.361 -> 
+22:03:36.361 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:36.361 -> configsip: 0, SPIWP:0xee
+22:03:36.361 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:36.361 -> mode:DIO, clock div:1
+22:03:36.361 -> load:0x3fff0030,len:1344
+22:03:36.361 -> load:0x40078000,len:13864
+22:03:36.361 -> load:0x40080400,len:3608
+22:03:36.361 -> entry 0x400805f0
+22:03:36.407 -> Hi from getSMS_vec_size (ret:0) !
+22:03:36.407 -> (T1) measures_cnt: 4
+22:03:36.968 -> Task 2 finished !
+22:03:37.061 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:41.405 -> ets Jun  8 2016 00:22:57
+22:03:41.405 -> 
+22:03:41.405 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:41.405 -> configsip: 0, SPIWP:0xee
+22:03:41.405 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:41.405 -> mode:DIO, clock div:1
+22:03:41.405 -> load:0x3fff0030,len:1344
+22:03:41.405 -> load:0x40078000,len:13864
+22:03:41.405 -> load:0x40080400,len:3608
+22:03:41.405 -> entry 0x400805f0
+22:03:41.451 -> Hi from getSMS_vec_size (ret:0) !
+22:03:41.451 -> (T1) measures_cnt: 5
+22:03:42.008 -> Task 2 finished !
+22:03:42.100 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:46.418 -> ets Jun  8 2016 00:22:57
+22:03:46.418 -> 
+22:03:46.418 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:46.418 -> configsip: 0, SPIWP:0xee
+22:03:46.418 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:46.418 -> mode:DIO, clock div:1
+22:03:46.418 -> load:0x3fff0030,len:1344
+22:03:46.418 -> load:0x40078000,len:13864
+22:03:46.465 -> load:0x40080400,len:3608
+22:03:46.465 -> entry 0x400805f0
+22:03:46.465 -> Hi from getSMS_vec_size (ret:0) !
+22:03:46.465 -> (T1) measures_cnt: 6
+22:03:47.022 -> Task 2 finished !
+22:03:47.115 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:51.446 -> ets Jun  8 2016 00:22:57
+22:03:51.446 -> 
+22:03:51.446 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:51.446 -> configsip: 0, SPIWP:0xee
+22:03:51.446 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:51.446 -> mode:DIO, clock div:1
+22:03:51.492 -> load:0x3fff0030,len:1344
+22:03:51.492 -> load:0x40078000,len:13864
+22:03:51.492 -> load:0x40080400,len:3608
+22:03:51.492 -> entry 0x400805f0
+22:03:51.492 -> Hi from getSMS_vec_size (ret:0) !
+22:03:51.492 -> (T1) measures_cnt: 7
+22:03:52.054 -> Task 2 finished !
+22:03:52.147 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:03:56.458 -> ets Jun  8 2016 00:22:57
+22:03:56.506 -> 
+22:03:56.506 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:03:56.506 -> configsip: 0, SPIWP:0xee
+22:03:56.506 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:03:56.506 -> mode:DIO, clock div:1
+22:03:56.506 -> load:0x3fff0030,len:1344
+22:03:56.506 -> load:0x40078000,len:13864
+22:03:56.506 -> load:0x40080400,len:3608
+22:03:56.506 -> entry 0x400805f0
+22:03:56.553 -> Hi from getSMS_vec_size (ret:0) !
+22:03:56.553 -> (T1) measures_cnt: 8
+22:03:57.067 -> Task 2 finished !
+22:03:57.208 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:04:01.533 -> ets Jun  8 2016 00:22:57
+22:04:01.533 -> 
+22:04:01.533 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:04:01.533 -> configsip: 0, SPIWP:0xee
+22:04:01.533 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:04:01.533 -> mode:DIO, clock div:1
+22:04:01.533 -> load:0x3fff0030,len:1344
+22:04:01.533 -> load:0x40078000,len:13864
+22:04:01.533 -> load:0x40080400,len:3608
+22:04:01.533 -> entry 0x400805f0
+22:04:01.580 -> Hi from getSMS_vec_size (ret:0) !
+22:04:01.580 -> (T1) measures_cnt: 9
+22:04:02.093 -> Task 2 finished !
+22:04:02.231 -> Setup ESP32 to sleep for every 4250000 uSeconds
+22:04:06.528 -> ets Jun  8 2016 00:22:57
+22:04:06.528 -> 
+22:04:06.528 -> rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+22:04:06.528 -> configsip: 0, SPIWP:0xee
+22:04:06.528 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+22:04:06.574 -> mode:DIO, clock div:1
+22:04:06.574 -> load:0x3fff0030,len:1344
+22:04:06.574 -> load:0x40078000,len:13864
+22:04:06.574 -> load:0x40080400,len:3608
+22:04:06.574 -> entry 0x400805f0
+22:04:06.574 -> Hi from getSMS_vec_size (ret:0) !
+22:04:06.621 -> (T1) measures_cnt: 10
+22:04:06.621 -> (T1) pending_sms: 1
+22:04:07.136 -> Hi from wake_up_gsm !
+22:04:07.136 -> Hi from SMS !
+22:04:07.136 -> (T2) pending_sms: 0
+22:04:07.136 -> Hi from shutdown_gsm !
+22:04:07.136 -> Task 2 finished !
+22:04:07.228 -> Setup ESP32 to sleep for every 4250000 uSeconds
