@@ -46,13 +46,13 @@ void loop() {
   float sensorValue = analogRead(23);
   float voltage = (sensorValue / 1023) * 5;
 
-  if(voltage > 1.5 && state == 0){
+  if(voltage > 2.5 && state == 0){
     cnt++;
     state=1;
     //Serial.print(cnt);
     //Serial.print("\n");
   }
-  if(voltage < 1.5 && state == 1){
+  if(voltage < 2.5 && state == 1){
     state=0;
   }
   
