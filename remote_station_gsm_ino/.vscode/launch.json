@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Daniel/Desktop/sketch_nov29a",
-      "program": "c:/Users/Daniel/Desktop/sketch_nov29a/build/Debug/outDebug",
+      "cwd": "c:/Users/Daniel/Documents/GitHub/remote-station/remote_station_gsm_ino",
+      "program": "c:/Users/Daniel/Documents/GitHub/remote-station/remote_station_gsm_ino/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

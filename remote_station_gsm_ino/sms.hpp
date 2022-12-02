@@ -51,7 +51,7 @@ using namespace std;
     // Your phone number to send SMS: + (plus sign) and country code, for Portugal +351, followed by phone number
     // SMS_TARGET Example for Portugal +351XXXXXXXXX
         #define SMS_TARGET "+351915784796"
-
+//#define SMS_TARGET "+351910299481"
 #define IP5306_ADDR 0x75
 #define IP5306_REG_SYS_CTL0 0x00
 
