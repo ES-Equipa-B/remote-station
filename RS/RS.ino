@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "RS.hpp"
 
 // State macros
 //Task 1 state macros
@@ -69,10 +69,10 @@ void setup()
   pinMode(ANEMOMETER_PIN, INPUT);
   pinMode(PWR_PIN, OUTPUT);
     
-  SerialMon.begin(9600);
+  //SerialMon.begin(9600);
   dht.begin();
   delay(2000);
-  Serial.println("Hello!");
+  //Serial.println("Hello!");
 
 
   // Task 1 - Read Sensor Data, so works like the Master
@@ -96,7 +96,7 @@ void setup()
     &Task2,    /* Task handle to keep track of created task */
     1);        /* pin task to core 1 */
 
-  SerialMon.println("Both tasks created!");
+  //SerialMon.println("Both tasks created!");
   bootCount++;
 
 
@@ -112,16 +112,16 @@ unsigned long store_sample_start_t = 0;
 unsigned long sms_task_start_t = 0;
 unsigned long sleep_t = 0;
 
-SerialMon.println("Task1 running on core" + String(xPortGetCoreID()));
+//SerialMon.println("Task1 running on core" + String(xPortGetCoreID()));
 
 for (;;) {
 
   delay(1000);
-  SerialMon.println("");
+  //SerialMon.println("");
   switch (state_t1) {
 
     case (S_T1_Setup):
-      SerialMon.println("S_T1_Setup");
+      //SerialMon.println("S_T1_Setup");
       // Setup state, runs only on first boot
       // Synchronize local time with network time.
       wakeUpGsm();
@@ -133,9 +133,9 @@ for (;;) {
     case (S_T1_StoreSample):
       digitalWrite(PWR_PIN,HIGH);
 
-      SerialMon.println("S_T1_StoreSample");
+      //SerialMon.println("S_T1_StoreSample");
       measures_cnt++;
-      SerialMon.println("Measure counter: "  + String(measures_cnt));
+      //SerialMon.println("Measure counter: "  + String(measures_cnt));
 
       slept = 0;
       store_sample_start_t = millis();
@@ -152,25 +152,25 @@ for (;;) {
       digitalWrite(PWR_PIN,LOW);
 
       // Encode sample and add it to the sms that is being filled before sending
-      SerialMon.println("SMS before concatenation: "  + String(sms));
+      //SerialMon.println("SMS before concatenation: "  + String(sms));
       strcpy(encoded_sample, encodeSample(timestamp, wind_speed, hum, temp).c_str());
-      SerialMon.println("Encoded Sample: "  + String(encoded_sample));
+      //SerialMon.println("Encoded Sample: "  + String(encoded_sample));
       strncat(sms, encoded_sample, 150 - strlen(encoded_sample) - 1);
-      SerialMon.println("SMS after concatenation: "  + String(sms));
+      //SerialMon.println("SMS after concatenation: "  + String(sms));
 
       if (measures_cnt == (60 / SMS_PER_HOUR)) {
         // Current SMS is filled with (60/SMS_PER_HOUR) samples
-        SerialMon.println(String(60 / SMS_PER_HOUR) + " measures obtained.");
+        //SerialMon.println(String(60 / SMS_PER_HOUR) + " measures obtained.");
         state_t1 = S_T1_PrepareSms;
       }
       else {
         // Current SMS is not filled with (60/SMS_PER_HOUR) samples
         if (sms_buffer.size() == 0) {
-          SerialMon.println("No SMSs in queue.");
+          //SerialMon.println("No SMSs in queue.");
           state_t1 = S_T1_Sleep;
         }
         else {
-          SerialMon.println("SMSs in queue.");
+          //SerialMon.println("SMSs in queue.");
           state_t1 = S_T1_TriggerSmsTask;
         }
       }
@@ -179,17 +179,17 @@ for (;;) {
 
     case (S_T1_PrepareSms):
 
-      SerialMon.println("S_T1_PrepareSms");
+      //SerialMon.println("S_T1_PrepareSms");
       sms_buffer.push(sms); // Push current SMS to queue
       strcpy(sms, ""); // Delete current SMS
-      SerialMon.println("SMS queue size: "  + String(sms_buffer.size()));
+      //SerialMon.println("SMS queue size: "  + String(sms_buffer.size()));
 
       state_t1 = S_T1_TriggerSmsTask;
       break;
 
     case (S_T1_TriggerSmsTask):
 
-      SerialMon.println("S_T1_TriggerSmsTask");
+      //SerialMon.println("S_T1_TriggerSmsTask");
 
       if (sms_task_trigger == 0) {
         // Trigger task2 to send SMS
@@ -202,7 +202,7 @@ for (;;) {
 
         if (sms_task_ended || sms_task_duration > sms_task_timeout) {
           // SMS task ended or timeout reached
-          SerialMon.println("SMS Task ended or timeout reached.");
+          //SerialMon.println("SMS Task ended or timeout reached.");
           sms_task_trigger = 0;
           sms_task_ended = 0;
           state_t1 = S_T1_Sleep;
@@ -213,38 +213,37 @@ for (;;) {
 
     case (S_T1_Sleep):
 
-      SerialMon.println("S_T1_Sleep");
+      //SerialMon.println("S_T1_Sleep");
 
       if (!slept) {
         // Sleep
         //Copy queue to memory before sleep
-        SerialMon.println("Copying queue to memory.");
+        //SerialMon.println("Copying queue to memory.");
         sms_buffer_size = sms_buffer.size();
         while (!sms_buffer.empty()) {
 
-          SerialMon.println("Copying (" + String(sms_buffer.front().c_str()) + ") to position " + String(10 - sms_buffer.size()));
+          //SerialMon.println("Copying (" + String(sms_buffer.front().c_str()) + ") to position " + String(10 - sms_buffer.size()));
 
           strcpy(sms_buffer_rtc[10 - sms_buffer.size()], sms_buffer.front().c_str());
           sms_buffer.pop();
         }
         for (int i = 0; i < (10 - sms_buffer_size); i++) {
-          SerialMon.println("Erasing position " + String(i));
-          SerialMon.println("Position string: " + String(sms_buffer_rtc[i]));
+          //SerialMon.println("Erasing position " + String(i));
+          //SerialMon.println("Position string: " + String(sms_buffer_rtc[i]));
           strcpy(sms_buffer_rtc[i], "");
         }
         getLocalTime(&now, 0);
-        SerialMon.println("Seconds now:" + String(now.tm_sec));
+        //SerialMon.println("Seconds now:" + String(now.tm_sec));
         //sleep_t = 60000 - (now.tm_sec * 1000);
         sleep_t = 60000 - (millis() - store_sample_start_t);
-        SerialMon.println("ESP will sleep for " + String(sleep_t));
+        //SerialMon.println("ESP will sleep for " + String(sleep_t));
         slept = 1;
-        SerialMon.println("ESP is sleeping.");
+        //SerialMon.println("ESP is sleeping.");
 
         // Normal mode with the next line
         esp_sleep_enable_timer_wakeup(sleep_t*1000);
         // Just for speed up debeug
         //esp_sleep_enable_timer_wakeup(5000 * 1000); // Sleep for 1 second to debug
-        //esp_deep_sleep_pd_config(ESP_PD_DOMAIN_RTC_PERIPH, ESP_PD_OPTION_OFF);
         esp_deep_sleep_start();
 
       }
@@ -252,24 +251,24 @@ for (;;) {
       else {
         //Woke up from sleep
         // Copy memory to queue
-        SerialMon.println("Copying memory to queue.");
+        //SerialMon.println("Copying memory to queue.");
         sms_buffer.empty();
 
         for (int i = 0; i < 10; i++) {
           if (sms_buffer_rtc[i][0] != '\0') {
             strncpy(sms_to_push, sms_buffer_rtc[i], 160);
-            SerialMon.println("Pushing the index " + String(i) + "(" + String(sms_to_push) + ") to queue because it is not null.");
+            //SerialMon.println("Pushing the index " + String(i) + "(" + String(sms_to_push) + ") to queue because it is not null.");
             sms_buffer.push(sms_to_push);
           }
         }
 
         if (measures_cnt == (int)(60 / SMS_PER_HOUR)) {
           // Reset measures_cnt if 10 samples were already obtained.
-          SerialMon.println("ESP woke up, with 10 samples obtained.");
+          //SerialMon.println("ESP woke up, with 10 samples obtained.");
           measures_cnt = 0;
         }
         else {
-          SerialMon.println("ESP woke up, with less than 10 samples obtained.");
+          //SerialMon.println("ESP woke up, with less than 10 samples obtained.");
         }
 
         state_t1 = S_T1_StoreSample;
@@ -284,7 +283,7 @@ for (;;) {
 
 void Task2code (void * pvParameters) {
 
-  SerialMon.println("Task2 running on core" + String(xPortGetCoreID()));
+  //SerialMon.println("Task2 running on core" + String(xPortGetCoreID()));
 
   for (;;) {
 
@@ -294,34 +293,34 @@ void Task2code (void * pvParameters) {
 
       case (S_T2_Wait):
         // Waits for sms_task_trigger
-        SerialMon.println("S_T2_Wait");
+        //SerialMon.println("S_T2_Wait");
 
         if (sms_task_trigger == 1) {
-          SerialMon.println("Sms task triggered.");
+          //SerialMon.println("Sms task triggered.");
           state_t2 = S_T2_SendSms;
         }
         break;
 
       case (S_T2_SendSms):
         // Sms task triggered
-        SerialMon.println("S_T2_SendSms");
+        //SerialMon.println("S_T2_SendSms");
         printQueue(sms_buffer);
 
         if (sms_buffer.size() == 0) {
-          SerialMon.println("There are no SMS in buffer.");
+          //SerialMon.println("There are no SMS in buffer.");
           sms_task_ended = 1;
           state_t2 = S_T2_Wait;
 
         }
         else {
-          SerialMon.println("There are SMSs in buffer.");
+          //SerialMon.println("There are SMSs in buffer.");
           printQueue(sms_buffer);
 
           //while(1); // Uncomment to force SMS sending failure.
 
           if (sendAllSmsInBuffer(sms_buffer) == 0) {
 
-            SerialMon.println("All SMSs in buffer were sent.");
+            //SerialMon.println("All SMSs in buffer were sent.");
             printQueue(sms_buffer);
             sms_task_ended = 1;
             state_t2 = S_T2_Wait;
