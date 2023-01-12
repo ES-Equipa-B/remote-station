@@ -108,7 +108,6 @@ void setup()
 }
 
 void loop(){
-
 };
 
 void Task1code(void *pvParameters)
@@ -271,7 +270,7 @@ void Task1code(void *pvParameters)
 
         if (t_now == boot_time)
         {
-          String msg = String("SMS sent in the last day: ") + String(sms_sent);
+          String msg = String("Boot time: ") + String(boot_time) + String(" SMS sent in the last day: ") + String(sms_sent);
           sms_buffer.push(msg.c_str());
           DEBUG_PRINTLN(msg);
           sms_sent = -1;

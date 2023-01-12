@@ -49,9 +49,9 @@ const char simPIN[] = "";
 // Your phone number to send SMS: + (plus sign) and country code, for Portugal +351, followed by phone number
 // SMS_TARGET Example for Portugal +351XXXXXXXXX
 // #define SMS_TARGET "+351915784796" // galaxy S4
-// #define SMS_TARGET "+351921692157"  // campanha server
-#define SMS_TARGET "+351910299481" // campanha pessoal
-                                   // #define SMS_TARGET "+351913816269" // joao
+#define SMS_TARGET "+351921692157"  // campanha server
+//#define SMS_TARGET "+351910299481" // campanha pessoal
+// #define SMS_TARGET "+351913816269" // joao
 
 #define IP5306_ADDR 0x75
 #define IP5306_REG_SYS_CTL0 0x00
