@@ -329,31 +329,32 @@ int syncRtcWithNetworkTime(bool first_exec) {
     i++;
   } while (i < 10 && yr <= 4);
 
-  month = stoi(gsm_datetime.substr(3, 2));
-  mday = stoi(gsm_datetime.substr(6, 2));
-  hr = stoi(gsm_datetime.substr(9, 2));
-  minute = stoi(gsm_datetime.substr(12, 2));
-  sec = stoi(gsm_datetime.substr(15, 2));
-  isDst = stoi(gsm_datetime.substr(18, 2));
+  if (yr > 4 || first_exec) {
+    month = stoi(gsm_datetime.substr(3, 2));
+    mday = stoi(gsm_datetime.substr(6, 2));
+    hr = stoi(gsm_datetime.substr(9, 2));
+    minute = stoi(gsm_datetime.substr(12, 2));
+    sec = stoi(gsm_datetime.substr(15, 2));
+    isDst = stoi(gsm_datetime.substr(18, 2));
 
 
-  Serial.printf("%d %d %d %d %d %d %d\n", yr, month, mday, hr, minute, sec, isDst);
+    Serial.printf("%d %d %d %d %d %d %d\n", yr, month, mday, hr, minute, sec, isDst);
 
-  struct tm tm;
+    struct tm tm;
 
-  tm.tm_year = yr + 100; //(2000+yy-1900) // Set date
-  tm.tm_mon = month - 1;
-  tm.tm_mday = mday;
-  tm.tm_hour = hr;      // Set time
-  tm.tm_min = minute;
-  tm.tm_sec = sec;
-  tm.tm_isdst = isDst;  // 1 or 0
+    tm.tm_year = yr + 100; //(2000+yy-1900) // Set date
+    tm.tm_mon = month - 1;
+    tm.tm_mday = mday;
+    tm.tm_hour = hr;      // Set time
+    tm.tm_min = minute;
+    tm.tm_sec = sec;
+    tm.tm_isdst = isDst;  // 1 or 0
 
-  time_t t = mktime(&tm);
-  Serial.printf("Setting time: %s\n", asctime(&tm));
-  struct timeval now = { .tv_sec = t };
-  settimeofday(&now, NULL);
-
+    time_t t = mktime(&tm);
+    Serial.printf("Setting time: %s\n", asctime(&tm));
+    struct timeval now = { .tv_sec = t };
+    settimeofday(&now, NULL);
+  }
   return 0;
 
 }
