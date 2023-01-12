@@ -85,7 +85,6 @@ int lcdRows = 2;
 
 void setup()
 {
-
   // Set serial for debug console (to Serial Monitor, default speed 115200)
   pinMode(ANEMOMETER_PIN, INPUT);
   pinMode(PWR_PIN, OUTPUT);
@@ -240,7 +239,7 @@ void Task1code(void *pvParameters) {
           }
         */
         // <------ Passou para dentro d
-
+        //digitalWrite(PWR_PIN,HIGH);
         //SerialMon.println("S_T1_StoreSample");
         //SerialMon.println(String("(store)boot_time: ") + String(boot_time));
         //SerialMon.println(String("(store)lastSync: ") + String (lastSync));
