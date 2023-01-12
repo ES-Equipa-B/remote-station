@@ -1,3 +1,6 @@
+#ifndef SENSORS_H
+#define SENSORS_H
+
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 
@@ -26,3 +29,5 @@ const float Vref = 3.0;
  * 
  */
 float anemometer_meas();
+
+#endif
