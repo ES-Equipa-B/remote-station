@@ -234,8 +234,8 @@ for (;;) {
         }
         getLocalTime(&now, 0);
         SerialMon.println("Seconds now:" + String(now.tm_sec));
-        //sleep_t = 60000 - (now.tm_sec * 1000);
-        sleep_t = 60000 - (millis() - store_sample_start_t);
+        sleep_t = 60000 - (now.tm_sec * 1000);
+        //sleep_t = 60000 - (millis() - store_sample_start_t);
         SerialMon.println("ESP will sleep for " + String(sleep_t));
         slept = 1;
         SerialMon.println("ESP is sleeping.");

@@ -51,8 +51,11 @@ using namespace std;
     // Your phone number to send SMS: + (plus sign) and country code, for Portugal +351, followed by phone number
     // SMS_TARGET Example for Portugal +351XXXXXXXXX
     // Main Station Default number
+    #define SMS_TARGET_TEST "+351915784796" // test galaxy S4
+    //#define SMS_TARGET "+351921692157"  77 campanha
+    // 
+    #define SMS_TARGET "+351913816269" // joao
     //#define SMS_TARGET "+351915784796"
-    #define SMS_TARGET "+351921692157"
     #define IP5306_ADDR 0x75
     #define IP5306_REG_SYS_CTL0 0x00
 
@@ -78,7 +81,9 @@ using namespace std;
     void shutdownGsm();
     // Send SMS containing msg.
     int sendSms(string msg);
-
+    // Send Cnt SMS
+    int sendCntSMS(int &sms_sent_cnt);
+    
 // Sample encoding
 
     // Encode sample with sensor readings and timestamp.
@@ -95,16 +100,22 @@ using namespace std;
     string getLocalHourMinutes();
 
     // Syncs ESP local time (RTC) with network time.
-    int syncRtcWithNetworkTime();
+    int syncRtcWithNetworkTime(bool first_exec);
 
     // Test syncRtcWithNetworkTime
     int test_syncRtcWithNetworkTime();
+
+    bool compareTime(std::string t_now, std::string t_lastSync);
 
 // Send SMS task
 
     // Send all SMS in buffer until it is empty.
     int sendAllSmsInBuffer(queue<string>& buffer);
+    int sendAllSmsInBuffer_sms_test(queue<string> &buffer, int &lastSync, int &sms_sent_cnt, int &sync_min);
     
+    
+    int send_sms_test(int &sms_sent_cnt);
+     
     // Test sendAllSmsInBuffer().
     int test_sendAllSmsInBuffer();
 
